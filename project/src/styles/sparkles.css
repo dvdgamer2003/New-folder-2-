@@ -1,0 +1,152 @@
+@keyframes float {
+  0% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-20px) rotate(180deg); }
+  100% { transform: translateY(0px) rotate(360deg); }
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.2); opacity: 0.7; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+@keyframes twinkle {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+
+.sparkle-container {
+  position: relative;
+  overflow: hidden;
+}
+
+.sparkle {
+  position: absolute;
+  pointer-events: none;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 50%;
+  mix-blend-mode: screen;
+}
+
+.sparkle-sm {
+  width: 4px;
+  height: 4px;
+  filter: blur(1px);
+}
+
+.sparkle-md {
+  width: 6px;
+  height: 6px;
+  filter: blur(1.5px);
+}
+
+.sparkle-lg {
+  width: 8px;
+  height: 8px;
+  filter: blur(2px);
+}
+
+.float-1 {
+  animation: float 6s ease-in-out infinite, twinkle 2s ease-in-out infinite;
+}
+
+.float-2 {
+  animation: float 8s ease-in-out infinite, twinkle 3s ease-in-out infinite;
+}
+
+.float-3 {
+  animation: float 10s ease-in-out infinite, twinkle 4s ease-in-out infinite;
+}
+
+.star {
+  position: absolute;
+  background: white;
+  clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+}
+
+.star-sm {
+  width: 8px;
+  height: 8px;
+}
+
+.star-md {
+  width: 12px;
+  height: 12px;
+}
+
+.star-lg {
+  width: 16px;
+  height: 16px;
+}
+
+.sparkle-button {
+  position: relative;
+  overflow: hidden;
+}
+
+.sparkle-button::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255,255,255,0.8) 10%, transparent 70%);
+  transform: scale(0);
+  opacity: 0;
+  transition: transform 0.5s, opacity 0.5s;
+}
+
+.sparkle-button:hover::after {
+  transform: scale(1);
+  opacity: 0.1;
+}
+
+.sparkle-text {
+  position: relative;
+  display: inline-block;
+}
+
+.sparkle-text::before,
+.sparkle-text::after {
+  content: '✨';
+  position: absolute;
+  opacity: 0;
+  animation: twinkle 2s ease-in-out infinite;
+}
+
+.sparkle-text::before {
+  left: -20px;
+  animation-delay: 0.5s;
+}
+
+.sparkle-text::after {
+  right: -20px;
+  animation-delay: 1s;
+}
+
+.magic-sparkle {
+  position: absolute;
+  pointer-events: none;
+  opacity: 0;
+}
+
+@keyframes magic-sparkle-animation {
+  0% { transform: scale(0) rotate(0deg); opacity: 0; }
+  50% { transform: scale(1) rotate(180deg); opacity: 1; }
+  100% { transform: scale(0) rotate(360deg); opacity: 0; }
+}
+
+.generate-sparkles {
+  position: relative;
+}
+
+.generate-sparkles::before {
+  content: '✨';
+  position: absolute;
+  animation: float 3s ease-in-out infinite;
+  opacity: 0.7;
+  left: -20px;
+  top: 50%;
+  transform: translateY(-50%);
+}
